@@ -19,6 +19,7 @@
   --line:#DCE3E9; --line-strong:#BEC9D3;
   --accent:#1B4A6B;
   --p0:#B03A2C; --p1:#2A5F8F; --p2:#2C7A55; --p3:#93670F; --p4:#664A93;
+  --p5:#0F6E70; --p6:#A03A6B;
   --p-on:#FFFFFF;
   --vacant:#C4562C;
   --shadow:0 1px 2px rgba(16,24,32,.06),0 8px 20px -14px rgba(16,24,32,.35);
@@ -31,6 +32,7 @@
     --line:#28323B; --line-strong:#3B4854;
     --accent:#88B8D8;
     --p0:#E87762; --p1:#77ABDA; --p2:#5FBB8B; --p3:#D6AB4E; --p4:#AA8FD4;
+    --p5:#4FBFC1; --p6:#E087B4;
     --p-on:#12181E;
     --vacant:#E08A5E;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -16px rgba(0,0,0,.8);
@@ -43,6 +45,7 @@
   --line:#28323B; --line-strong:#3B4854;
   --accent:#88B8D8;
   --p0:#E87762; --p1:#77ABDA; --p2:#5FBB8B; --p3:#D6AB4E; --p4:#AA8FD4;
+  --p5:#4FBFC1; --p6:#E087B4;
   --p-on:#12181E;
   --vacant:#E08A5E;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -16px rgba(0,0,0,.8);
@@ -279,7 +282,7 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
 <div id="root"></div>
 <div id="toast" role="status" aria-live="polite"></div>
 
-<script type="application/json" id="app-state">{"semaine": "Semaine du 7 au 11 septembre 2026", "relaisLieu": "Gare d’Uckange", "noteLecteur": "Ce planning est tenu à jour par l’organisateur du covoiturage. Pour signaler un changement — un conducteur à échanger, un enfant absent, un horaire qui bouge — prévenez-le&nbsp;: la page est mise à jour pour tout le monde en même temps, sans nouveau lien à s’envoyer.", "aCompleter": ["<strong>Tout se modifie sur place</strong>&nbsp;: l’heure, le sens, le lieu, le conducteur. Cliquez sur un prénom d’enfant pour le retirer du trajet, recliquez pour le remettre.", "<strong>«&nbsp;+ Ajouter un trajet&nbsp;»</strong>, au bas de chaque journée, crée un départ ou un retour supplémentaire. La croix en supprime un, après confirmation.", "Sur les retours où le <strong>relais gare d’Uckange</strong> est mis en place, activez-le et indiquez l’heure d’arrivée du bus ou du train.", "Vous êtes seul à voir ces boutons&nbsp;: les autres parents ouvrent la même page en lecture."], "jours": [{"id": "lun", "nom": "Lundi", "date": "7 sept."}, {"id": "mar", "nom": "Mardi", "date": "8 sept."}, {"id": "mer", "nom": "Mercredi", "date": "9 sept."}, {"id": "jeu", "nom": "Jeudi", "date": "10 sept."}, {"id": "ven", "nom": "Vendredi", "date": "11 sept."}], "enfants": [{"id": "selena", "nom": "Selena M."}, {"id": "emrys", "nom": "Emrys B."}, {"id": "hugo", "nom": "Hugo S."}], "parents": [{"id": "katy", "nom": "Katy B.", "enfant": "emrys"}, {"id": "stephane", "nom": "Stephane B.", "enfant": "emrys"}, {"id": "mauro", "nom": "Mauro M.", "enfant": "selena"}, {"id": "christelle", "nom": "Christelle M.", "enfant": "selena"}, {"id": "maman-hugo", "nom": "Helene S.", "enfant": "hugo"}], "trajets": [{"jour": "lun", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": null}, {"jour": "lun", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": null, "relais": null}, {"jour": "mar", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": null}, {"jour": "mar", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": null, "relais": null}, {"jour": "mer", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": null}, {"jour": "mer", "sens": "retour", "heure": "12:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": null, "relais": null}, {"jour": "jeu", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": null}, {"jour": "jeu", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": null, "relais": null}, {"jour": "ven", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": null}, {"jour": "ven", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": null, "relais": null}], "majLe": "1 septembre 2026"}</script>
+<script type="application/json" id="app-state">{"semaine": "Semaine du 7 au 11 septembre 2026", "relaisLieu": "Gare d’Uckange", "noteLecteur": "Ce planning est tenu à jour par l’organisateur du covoiturage. Pour signaler un changement — un conducteur à échanger, un enfant absent, un horaire qui bouge — prévenez-le&nbsp;: la page est mise à jour pour tout le monde en même temps, sans nouveau lien à s’envoyer.", "aCompleter": ["<strong>Tout se modifie sur place</strong>&nbsp;: l’heure, le sens, le lieu, le conducteur. Cliquez sur un prénom d’enfant pour le retirer du trajet, recliquez pour le remettre.", "<strong>«&nbsp;+ Ajouter un trajet&nbsp;»</strong>, au bas de chaque journée, crée un départ ou un retour supplémentaire. La croix en supprime un, après confirmation.", "Sur les retours où le <strong>relais gare d’Uckange</strong> est mis en place, activez-le et indiquez l’heure d’arrivée du bus ou du train.", "Vous êtes seul à voir ces boutons&nbsp;: les autres parents ouvrent la même page en lecture."], "jours": [{"id": "lun", "nom": "Lundi", "date": "7 sept."}, {"id": "mar", "nom": "Mardi", "date": "8 sept."}, {"id": "mer", "nom": "Mercredi", "date": "9 sept."}, {"id": "jeu", "nom": "Jeudi", "date": "10 sept."}, {"id": "ven", "nom": "Vendredi", "date": "11 sept."}], "enfants": [{"id": "selena", "nom": "Selena M."}, {"id": "emrys", "nom": "Emrys B."}, {"id": "hugo", "nom": "Hugo S."}], "parents": [{"id": "katy", "nom": "Katy B.", "enfant": "emrys"}, {"id": "stephane", "nom": "Stephane B.", "enfant": "emrys"}, {"id": "mauro", "nom": "Mauro M.", "enfant": "selena"}, {"id": "christelle", "nom": "Christelle M.", "enfant": "selena"}, {"id": "maman-hugo", "nom": "Helene S.", "enfant": "hugo"}, {"id": "grd-par-b", "nom": "Grd-Par B.", "enfant": "emrys"}, {"id": "grd-par-m", "nom": "Grd-Par M.", "enfant": "selena"}], "trajets": [{"jour": "lun", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "stephane"}, {"jour": "lun", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "hugo"], "conducteur": "maman-hugo", "relais": null}, {"jour": "mar", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "stephane"}, {"jour": "mar", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "katy", "relais": null}, {"jour": "mer", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "mauro"}, {"jour": "mer", "sens": "retour", "heure": "12:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": null, "relais": null}, {"jour": "jeu", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "maman-hugo"}, {"jour": "jeu", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "katy", "relais": null}, {"jour": "ven", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "mauro"}, {"jour": "ven", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "maman-hugo", "relais": null}, {"jour": "lun", "sens": "retour", "heure": "15:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys"], "conducteur": "katy", "relais": null}, {"jour": "mar", "sens": "retour", "heure": "18:00", "lieu": "SPC → maisons", "enfants": ["selena", "hugo"], "conducteur": "mauro", "relais": null}], "majLe": "1 septembre 2026"}</script>
 
 <script id="app-js">
 (function(){
@@ -302,6 +305,9 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
   var pendingDelete = null;  // index du trajet dont la suppression attend confirmation
   var focusNew = null;       // index du trajet qui vient d'être ajouté, à mettre au focus
 
+  // nombre de teintes --p0..--pN disponibles dans la feuille de style
+  var NB_COULEURS = 7;
+
   // lieux proposés par défaut, un par sens
   var LIEU = { aller: "SPC — début des cours", retour: "SPC → maisons" };
 
@@ -315,7 +321,7 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
     return null;
   }
   function parentColor(id){
-    for (var i = 0; i < state.parents.length; i++) if (state.parents[i].id === id) return "var(--p" + (i % 5) + ")";
+    for (var i = 0; i < state.parents.length; i++) if (state.parents[i].id === id) return "var(--p" + (i % NB_COULEURS) + ")";
     return "var(--ink-3)";
   }
   function childName(id){
