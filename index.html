@@ -20,6 +20,8 @@
   --accent:#1B4A6B;
   --p0:#B03A2C; --p1:#2A5F8F; --p2:#2C7A55; --p3:#93670F; --p4:#664A93;
   --p5:#0F6E70; --p6:#A03A6B;
+  --p7:#5A6A78;
+  --p8:#D4A017;
   --p-on:#FFFFFF;
   --vacant:#C4562C;
   --shadow:0 1px 2px rgba(16,24,32,.06),0 8px 20px -14px rgba(16,24,32,.35);
@@ -33,6 +35,8 @@
     --accent:#88B8D8;
     --p0:#E87762; --p1:#77ABDA; --p2:#5FBB8B; --p3:#D6AB4E; --p4:#AA8FD4;
     --p5:#4FBFC1; --p6:#E087B4;
+    --p7:#97A8B6;
+    --p8:#F2CE55;
     --p-on:#12181E;
     --vacant:#E08A5E;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -16px rgba(0,0,0,.8);
@@ -46,6 +50,8 @@
   --accent:#88B8D8;
   --p0:#E87762; --p1:#77ABDA; --p2:#5FBB8B; --p3:#D6AB4E; --p4:#AA8FD4;
   --p5:#4FBFC1; --p6:#E087B4;
+  --p7:#97A8B6;
+  --p8:#F2CE55;
   --p-on:#12181E;
   --vacant:#E08A5E;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -16px rgba(0,0,0,.8);
@@ -70,7 +76,6 @@ a{color:var(--accent)}
   padding-bottom:20px;border-bottom:2px solid var(--ink)}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
 .masthead h1{font-size:clamp(28px,4.4vw,44px);font-weight:700;letter-spacing:-.02em;margin-top:6px}
-.masthead .week{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-2);margin-top:8px;letter-spacing:.01em}
 .status{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2);
   background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:none}
@@ -205,6 +210,11 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
 .driver .static{cursor:default;padding-right:12px}
 .driver.vacant select,.driver.vacant .static{background:transparent;color:var(--vacant);
   border:1px dashed var(--vacant);font-weight:600}
+/* conducteur provisoire : contour pointillé, pour le distinguer d'un nom réel */
+.driver.provisoire select,.driver.provisoire .static{
+  background:color-mix(in srgb,var(--pc) 16%,transparent);color:var(--ink);
+  border:1px dashed var(--pc);font-style:italic}
+.driver.provisoire::after{border-top-color:var(--ink-2)}
 .driver select:disabled{cursor:default;opacity:1}
 .driver.static-only::after{display:none}
 
@@ -282,7 +292,7 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
 <div id="root"></div>
 <div id="toast" role="status" aria-live="polite"></div>
 
-<script type="application/json" id="app-state">{"semaine": "Semaine du 7 au 11 septembre 2026", "relaisLieu": "Gare d’Uckange", "noteLecteur": "Ce planning est tenu à jour par l’organisateur du covoiturage. Pour signaler un changement — un conducteur à échanger, un enfant absent, un horaire qui bouge — prévenez-le&nbsp;: la page est mise à jour pour tout le monde en même temps, sans nouveau lien à s’envoyer.", "aCompleter": ["<strong>Tout se modifie sur place</strong>&nbsp;: l’heure, le sens, le lieu, le conducteur. Cliquez sur un prénom d’enfant pour le retirer du trajet, recliquez pour le remettre.", "<strong>«&nbsp;+ Ajouter un trajet&nbsp;»</strong>, au bas de chaque journée, crée un départ ou un retour supplémentaire. La croix en supprime un, après confirmation.", "Sur les retours où le <strong>relais gare d’Uckange</strong> est mis en place, activez-le et indiquez l’heure d’arrivée du bus ou du train.", "Vous êtes seul à voir ces boutons&nbsp;: les autres parents ouvrent la même page en lecture."], "jours": [{"id": "lun", "nom": "Lundi", "date": "7 sept."}, {"id": "mar", "nom": "Mardi", "date": "8 sept."}, {"id": "mer", "nom": "Mercredi", "date": "9 sept."}, {"id": "jeu", "nom": "Jeudi", "date": "10 sept."}, {"id": "ven", "nom": "Vendredi", "date": "11 sept."}], "enfants": [{"id": "selena", "nom": "Selena M."}, {"id": "emrys", "nom": "Emrys B."}, {"id": "hugo", "nom": "Hugo S."}], "parents": [{"id": "katy", "nom": "Katy B.", "enfant": "emrys"}, {"id": "stephane", "nom": "Stephane B.", "enfant": "emrys"}, {"id": "mauro", "nom": "Mauro M.", "enfant": "selena"}, {"id": "christelle", "nom": "Christelle M.", "enfant": "selena"}, {"id": "maman-hugo", "nom": "Helene S.", "enfant": "hugo"}, {"id": "grd-par-b", "nom": "Grd-Par B.", "enfant": "emrys"}, {"id": "grd-par-m", "nom": "Grd-Par M.", "enfant": "selena"}], "trajets": [{"jour": "lun", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "stephane"}, {"jour": "lun", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "hugo"], "conducteur": "maman-hugo", "relais": null}, {"jour": "mar", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "stephane"}, {"jour": "mar", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "katy", "relais": null}, {"jour": "mer", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "mauro"}, {"jour": "mer", "sens": "retour", "heure": "12:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": null, "relais": null}, {"jour": "jeu", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "maman-hugo"}, {"jour": "jeu", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "katy", "relais": null}, {"jour": "ven", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "mauro"}, {"jour": "ven", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "maman-hugo", "relais": null}, {"jour": "lun", "sens": "retour", "heure": "15:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys"], "conducteur": "katy", "relais": null}, {"jour": "mar", "sens": "retour", "heure": "18:00", "lieu": "SPC → maisons", "enfants": ["selena", "hugo"], "conducteur": "mauro", "relais": null}], "majLe": "1 septembre 2026"}</script>
+<script type="application/json" id="app-state">{"relaisLieu": "Gare d’Uckange", "noteLecteur": "Ce planning est tenu à jour par l’organisateur du covoiturage. Pour signaler un changement — un conducteur à échanger, un enfant absent, un horaire qui bouge — prévenez-le&nbsp;: la page est mise à jour pour tout le monde en même temps, sans nouveau lien à s’envoyer.", "aCompleter": ["<strong>Tout se modifie sur place</strong>&nbsp;: l’heure, le sens, le lieu, le conducteur. Cliquez sur un prénom d’enfant pour le retirer du trajet, recliquez pour le remettre.", "<strong>«&nbsp;+ Ajouter un trajet&nbsp;»</strong>, au bas de chaque journée, crée un départ ou un retour supplémentaire. La croix en supprime un, après confirmation."], "jours": [{"id": "lun", "nom": "Lundi", "date": ""}, {"id": "mar", "nom": "Mardi", "date": ""}, {"id": "mer", "nom": "Mercredi", "date": ""}, {"id": "jeu", "nom": "Jeudi", "date": ""}, {"id": "ven", "nom": "Vendredi", "date": ""}], "enfants": [{"id": "selena", "nom": "Selena M."}, {"id": "emrys", "nom": "Emrys B."}, {"id": "hugo", "nom": "Hugo S."}], "parents": [{"id": "katy", "nom": "Katy B.", "enfant": "emrys"}, {"id": "stephane", "nom": "Stephane B.", "enfant": "emrys"}, {"id": "mauro", "nom": "Mauro M.", "enfant": "selena"}, {"id": "christelle", "nom": "Christelle M.", "enfant": "selena"}, {"id": "maman-hugo", "nom": "Helene S.", "enfant": "hugo"}, {"id": "grd-par-b", "nom": "Grd-Par B.", "enfant": "emrys"}, {"id": "grd-par-m", "nom": "Grd-Par M.", "enfant": "selena"}, {"id": "a-prevoir-whatsapp", "nom": "A prévoir-WhatsApp", "provisoire": true, "couleur": 8}], "trajets": [{"jour": "lun", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "stephane"}, {"jour": "lun", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "hugo"], "conducteur": "maman-hugo", "relais": null}, {"jour": "mar", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "stephane"}, {"jour": "mar", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["emrys", "hugo"], "conducteur": "katy", "relais": null}, {"jour": "mer", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "mauro"}, {"jour": "mer", "sens": "retour", "heure": "12:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "a-prevoir-whatsapp", "relais": null}, {"jour": "jeu", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "maman-hugo"}, {"jour": "jeu", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "katy", "relais": null}, {"jour": "ven", "sens": "aller", "heure": "08:00", "lieu": "SPC — début des cours", "enfants": ["selena", "emrys", "hugo"], "conducteur": "mauro"}, {"jour": "ven", "sens": "retour", "heure": "17:00", "lieu": "SPC → maisons", "enfants": ["selena", "emrys", "hugo"], "conducteur": "maman-hugo", "relais": null}, {"jour": "lun", "sens": "retour", "heure": "15:00", "lieu": "SPC → maisons", "enfants": ["emrys"], "conducteur": "grd-par-b", "relais": null}, {"jour": "mar", "sens": "retour", "heure": "18:00", "lieu": "SPC → maisons", "enfants": ["selena"], "conducteur": "mauro", "relais": null}], "majLe": "1 septembre 2026"}</script>
 
 <script id="app-js">
 (function(){
@@ -306,7 +316,7 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
   var focusNew = null;       // index du trajet qui vient d'être ajouté, à mettre au focus
 
   // nombre de teintes --p0..--pN disponibles dans la feuille de style
-  var NB_COULEURS = 7;
+  var NB_COULEURS = 9;
 
   // lieux proposés par défaut, un par sens
   var LIEU = { aller: "SPC — début des cours", retour: "SPC → maisons" };
@@ -321,7 +331,12 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
     return null;
   }
   function parentColor(id){
-    for (var i = 0; i < state.parents.length; i++) if (state.parents[i].id === id) return "var(--p" + (i % NB_COULEURS) + ")";
+    for (var i = 0; i < state.parents.length; i++){
+      if (state.parents[i].id !== id) continue;
+      // une teinte fixée survit à un retrait ailleurs dans la liste ; sinon on suit le rang
+      var c = state.parents[i].couleur;
+      return "var(--p" + (typeof c === "number" ? c : i % NB_COULEURS) + ")";
+    }
     return "var(--ink-3)";
   }
   function childName(id){
@@ -348,7 +363,6 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
   /* ---------------- render ---------------- */
 
   function headerHTML(){
-    var v = vacantCount();
     var cls = editable ? "status live" : "status ro";
     var msg = editable
       ? "Vous modifiez — tout le monde voit vos changements"
@@ -364,8 +378,6 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
       +       esc(state.enfants.map(function(e){ return e.nom.split(" ")[0]; }).join(", "))
       +       ' · ' + state.parents.length + ' parents</div>'
       +     '<h1>' + esc(TITLE) + '</h1>'
-      +     '<div class="week">' + esc(state.semaine) + ' · ' + actifs().length + ' trajets · '
-      +       (v ? v + ' sans conducteur' : 'tout est couvert') + '</div>'
       +   '</div>'
       +   '<div class="' + cls + '"><span class="dot"></span>' + esc(msg) + '</div>'
       + '</header>';
@@ -401,8 +413,11 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
   function driverHTML(idx, t){
     var vac = !t.conducteur;
     var color = vac ? "transparent" : parentColor(t.conducteur);
-    var label = vac ? "À pourvoir" : parentById(t.conducteur).nom;
-    var wrap = 'class="driver' + (vac ? ' vacant' : '') + (editable ? '' : ' static-only') + '" style="--pc:' + color + '"';
+    var p = vac ? null : parentById(t.conducteur);
+    var label = vac ? "À pourvoir" : (p ? p.nom : "Conducteur inconnu");
+    var wrap = 'class="driver' + (vac ? ' vacant' : '')
+             + (p && p.provisoire ? ' provisoire' : '')
+             + (editable ? '' : ' static-only') + '" style="--pc:' + color + '"';
 
     if (!editable){
       return '<span ' + wrap + '><span class="static">' + esc(label) + '</span></span>';
@@ -503,7 +518,8 @@ input.relais-time,.relais-time.static{font-family:"IBM Plex Mono",monospace;font
               + '<div class="place">Horaire de sortie à renseigner</div></div>';
       }
       out += '<section class="day"><div class="day-head">'
-           + '<span class="nm">' + esc(j.nom) + '</span><span class="dt">' + esc(j.date) + '</span></div>'
+           + '<span class="nm">' + esc(j.nom) + '</span>'
+           + (j.date ? '<span class="dt">' + esc(j.date) + '</span>' : '') + '</div>'
            + '<div class="legs">' + body + '</div>'
            + (editable ? '<button type="button" class="add-leg" data-add="' + esc(j.id) + '">'
                        + '+ Ajouter un trajet le ' + esc(j.nom.toLowerCase()) + '</button>' : '')
